@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="A Developer with rich idea" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Notes On Creating A Hexo Theme | BobWong&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SetupTo Update NPM: npm install npm@latest -g.
+In 2015 it makes sense to use NVM.  NVM InstallationInstructions.
+Update NPM: npm install npm@latest -g
+Hexo: why can’t you use helper functions in sou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes On Creating A Hexo Theme">
+<meta property="og:url" content="http://bobwongs.com/2016/01/02/2016-01-02-Notes-On-Creating-A-Hexo-Theme/index.html">
+<meta property="og:site_name" content="BobWong's Blog">
+<meta property="og:description" content="SetupTo Update NPM: npm install npm@latest -g.
+In 2015 it makes sense to use NVM.  NVM InstallationInstructions.
+Update NPM: npm install npm@latest -g
+Hexo: why can’t you use helper functions in sou">
+<meta property="og:image" content="https://s3.amazonaws.com/ptsteadman-images/hexo.png">
+<meta property="og:updated_time" content="2016-08-12T11:17:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes On Creating A Hexo Theme">
+<meta name="twitter:description" content="SetupTo Update NPM: npm install npm@latest -g.
+In 2015 it makes sense to use NVM.  NVM InstallationInstructions.
+Update NPM: npm install npm@latest -g
+Hexo: why can’t you use helper functions in sou">
+<meta name="twitter:image" content="https://s3.amazonaws.com/ptsteadman-images/hexo.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="BobWong&#39;s Blog" rel="home">BobWong&#39;s Blog</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">An iOS Developer With Rich Idea</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-2016-01-02-Notes-On-Creating-A-Hexo-Theme" class="post-2016-01-02-Notes-On-Creating-A-Hexo-Theme post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Notes On Creating A Hexo Theme
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://bobwongs.com/2016/01/02/2016-01-02-Notes-On-Creating-A-Hexo-Theme/" data-id="cirrnxw4p000jay8vp0gzigbo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <div class="image-strip"><br><img src="https://s3.amazonaws.com/ptsteadman-images/hexo.png"><br></div>
+
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>To Update NPM: <code>npm install npm@latest -g</code>.</p>
+<p>In 2015 it makes sense to use NVM.  <a href="http://linoxide.com/ubuntu-how-to/install-node-js-ubuntu" target="_blank" rel="external">NVM Installation<br>Instructions</a>.</p>
+<p>Update NPM: <code>npm install npm@latest -g</code></p>
+<p>Hexo: why can’t you use helper functions in source code?<br>This should be in docs.</p>
+<h2 id="Creating-a-Custom-Index-File-in-Hexo"><a href="#Creating-a-Custom-Index-File-in-Hexo" class="headerlink" title="Creating a Custom Index File in Hexo"></a>Creating a Custom Index File in Hexo</h2><p>Trying to generate a custom index file in source, hexo would ignore<br><code>source/index.md</code> no matter what I did.  What I had to do was uninstall<br><code>hexo-generator-index</code>.  <a href="https://github.com/hexojs/hexo/issues/1077" target="_blank" rel="external">See<br>here</a>.  Then it works.  So, that<br>will be part of the setup for my theme.  But, it’s worth it in order to properly<br>seperate the theme from the content, I think.  Having everyone edit the theme<br>index.ejs template is no good.</p>
+<h2 id="Hexo-Rendering-Raw-EJS-File-Problem-I-Encountered"><a href="#Hexo-Rendering-Raw-EJS-File-Problem-I-Encountered" class="headerlink" title="Hexo Rendering Raw EJS File Problem I Encountered"></a>Hexo Rendering Raw EJS File Problem I Encountered</h2><p>Sometimes the server would keep rendering an old version of my code, but as<br>text.  So I’d see stuff like</p>
+<pre><code>&lt;% if (site.tags.length){ %&gt;
+</code></pre><p>The raw ejs, essentially.  Restarting the server or running <code>hexo clean</code> didn’t<br>do anything.</p>
+<p>After some time, I realized it was due to the gedit swap files being read by<br>hexo as the actual layout files: for example, <code>tag.ejs~</code>.  My <code>partial</code> helpers<br>looked like: <code>&lt;%- partial(&#39;_partials/tag&#39;) %&gt;</code>, and apparently hexo was reading<br>in <code>tag.ejs~</code> instead of <code>tag.ejs</code>.  And therefore, the ejs wasn’t rendering.</p>
+<p>To fix this, I simply changed my partial helper to <code>&lt;%-
+partial(&#39;_partials/tag.ejs&#39;) %&gt;</code>.  Problem solved.</p>
+<h2 id="Hexo-Excerpt-Variable"><a href="#Hexo-Excerpt-Variable" class="headerlink" title="Hexo Excerpt Variable"></a>Hexo Excerpt Variable</h2><p>I was confused by the behavior of the hexo <code>excerpt</code> variable.  If you define<br><code>excerpt: something</code> in the front matter, hexo ignores that.  Instead, to get it<br>to work, one needs to add a <code>&lt;!-- more --&gt;</code> comment in the source of the post.<br>Or, you can install a plugin that allows you to define custom excerpt in the<br>front matter.</p>
+<h2 id="Scripts-Directory"><a href="#Scripts-Directory" class="headerlink" title="Scripts Directory"></a>Scripts Directory</h2><p>One of the things I really discovered too late is the “Scripts” directory in the<br>theme folder.  In Hexo, the various plugins drive the structure of the site, as<br>opposed to the placement of different files and directories, as in Jekyll.  The<br>plugins programatically create folder structure, etc, where in Jekyll I mostly<br>used the liquid markup to structure the site.  </p>
+<p>The problem is, then, that the user wants to extend hexo to do some sort of<br>custom thing.  If one had to publish a new plugin, that’d be too much work.  But<br>the theme level scripts folder allows one to extend the base hexo functionality<br>in ‘user space’ effectively.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/01/02/2016-01-02-Notes-On-Creating-A-Hexo-Theme/">
+    <time datetime="2016-01-01T16:00:00.000Z" class="entry-date">
+        2016-01-02
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Programming/">Programming</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/07/27/hello-world/" rel="prev"><span class="meta-nav">←</span> Hello World</a></span>
+    
+    
+        <span class="nav-next"><a href="/2015/05/02/2015-05-02-How-To-Impress/" rel="next">How To Impress Employers at Infosessions <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/NET/">.NET</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dynamics-NAV/">Dynamics NAV</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Humor/">Humor</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NGINX/">NGINX</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/27/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/2016-01-02-Notes-On-Creating-A-Hexo-Theme/">Notes On Creating A Hexo Theme</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/02/2015-05-02-How-To-Impress/">How To Impress Employers at Infosessions</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/08/2015-04-08-NAV-Programming-Resources/">NAV Web Service Programming Resources</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/05/2015-04-05-Lookup-on-Page/">Adding Lookup Field to a Page in Dynamics NAV</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/">Design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/How-To/">How-To</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NAV/">NAV</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming/">Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resources/">Resources</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio/">Visual Studio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Development/">Web Development</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Welcome/">Welcome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/employment/">employment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/funny/">funny</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/How-To/" style="font-size: 10px;">How-To</a> <a href="/tags/NAV/" style="font-size: 20px;">NAV</a> <a href="/tags/Programming/" style="font-size: 10px;">Programming</a> <a href="/tags/Resources/" style="font-size: 20px;">Resources</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/Web-Development/" style="font-size: 10px;">Web Development</a> <a href="/tags/Welcome/" style="font-size: 10px;">Welcome</a> <a href="/tags/employment/" style="font-size: 10px;">employment</a> <a href="/tags/funny/" style="font-size: 10px;">funny</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 BobWong
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
